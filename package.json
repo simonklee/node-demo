@@ -25,6 +25,14 @@
     "@opentui/solid": "^0.0.0-20260518-4a54e2dc",
     "solid-js": "1.9.12"
   },
+  "optionalDependencies": {
+    "@opentui/core-darwin-arm64": "0.0.0-20260518-4a54e2dc",
+    "@opentui/core-darwin-x64": "0.0.0-20260518-4a54e2dc",
+    "@opentui/core-linux-arm64": "0.0.0-20260518-4a54e2dc",
+    "@opentui/core-linux-x64": "0.0.0-20260518-4a54e2dc",
+    "@opentui/core-win32-arm64": "0.0.0-20260518-4a54e2dc",
+    "@opentui/core-win32-x64": "0.0.0-20260518-4a54e2dc"
+  },
   "devDependencies": {
     "@types/node": "25.8.0",
     "typescript": "5.9.3",
