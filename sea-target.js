@@ -1,5 +1,16 @@
-export const opentuiNativePackageName = "@opentui/core-linux-x64"
-export const opentuiNativeLibraryName = "libopentui.so"
+const opentuiNativeLibraryNames = {
+  darwin: "libopentui.dylib",
+  linux: "libopentui.so",
+}
+
+const supportedOpenTuiNativeArchitectures = new Set(["arm64", "x64"])
+
+if (!opentuiNativeLibraryNames[process.platform] || !supportedOpenTuiNativeArchitectures.has(process.arch)) {
+  throw new Error(`Unsupported OpenTUI native target: ${process.platform}-${process.arch}`)
+}
+
+export const opentuiNativePackageName = `@opentui/core-${process.platform}-${process.arch}`
+export const opentuiNativeLibraryName = opentuiNativeLibraryNames[process.platform]
 export const opentuiNativeAssetKey = `${opentuiNativePackageName}/${opentuiNativeLibraryName}`
 
 export const opentuiParserWorkerAssetKey = "@opentui/core/parser.worker.js"
