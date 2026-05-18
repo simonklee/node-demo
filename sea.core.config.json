@@ -1,0 +1,9 @@
+{
+  "main": "dist-sea/demo-core-sea.mjs",
+  "mainFormat": "module",
+  "output": "dist-sea/opentui-demo-core",
+  "disableExperimentalSEAWarning": true,
+  "useCodeCache": false,
+  "execArgv": ["--experimental-ffi", "--disable-warning=ExperimentalWarning"],
+  "execArgvExtension": "none"
+}

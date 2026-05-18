@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-demo/
+dist-demo-core/
+dist-demo-solid/
+dist-sea/
+.cache/
+npm-debug.log*

@@ -1,0 +1,34 @@
+{
+  "name": "opentui-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build-demo.mjs && node scripts/build-sea.mjs",
+    "build:core": "node scripts/build-demo.mjs core && node scripts/build-sea.mjs core",
+    "build:solid": "node scripts/build-demo.mjs solid && node scripts/build-sea.mjs solid",
+    "test": "npm run build && node scripts/run-demo.mjs both --test && node scripts/run-sea.mjs both --test",
+    "test:core": "npm run build:core && node scripts/run-demo.mjs core --test && node scripts/run-sea.mjs core --test",
+    "test:solid": "npm run build:solid && node scripts/run-demo.mjs solid --test && node scripts/run-sea.mjs solid --test",
+    "start:core": "node scripts/run-demo.mjs core",
+    "start:solid": "node scripts/run-demo.mjs solid",
+    "start:core:sea": "node scripts/run-sea.mjs core",
+    "start:solid:sea": "node scripts/run-sea.mjs solid"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@opentui/core": "^0.0.0-20260518-4a54e2dc",
+    "@opentui/keymap": "^0.0.0-20260518-4a54e2dc",
+    "@opentui/solid": "^0.0.0-20260518-4a54e2dc",
+    "solid-js": "1.9.12"
+  },
+  "devDependencies": {
+    "@types/node": "25.8.0",
+    "typescript": "5.9.3",
+    "vite": "8.0.13",
+    "vite-plugin-solid": "2.11.12"
+  }
+}
