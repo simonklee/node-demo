@@ -24,6 +24,9 @@ for (const target of parseTargets(process.argv[2])) {
   writeFileSync(join(root, generatedConfigPath), `${JSON.stringify(seaConfig, null, 2)}\n`)
 
   run(node, ["--build-sea", generatedConfigPath])
+  if (process.platform === "darwin") {
+    run("codesign", ["--sign", "-", demo.seaExecutable])
+  }
 
   keepDistSea = true
 }
