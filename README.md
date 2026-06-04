@@ -5,14 +5,14 @@ A Node project that tests an OpenTUI snapshot of the Node.js build.
 ## Requirements
 
 - `npm` (any modern Node works for installing dependencies and running the npm scripts)
-- The OpenTUI renderer itself needs Node 26+ because it uses `node:ffi`
+- The OpenTUI renderer itself needs Node 26.3.0+ because it uses the current experimental `node:ffi` API
 
-The wrapper scripts in `scripts/` resolve a Node 26 binary in this order:
+The wrapper scripts in `scripts/` resolve a Node 26.3.0+ binary in this order:
 
 1. `$NODE_BIN`, if set
-2. `.cache/node26/node-v26.1.0-<platform>-<arch>/bin/node`, if it exists
-3. The Node running the wrapper script, if it is 26+
-4. Otherwise, download Node 26.1.0 for the current host into `.cache/node26/`
+2. `.cache/node26/node-v26.3.0-<platform>-<arch>/bin/node`, if it exists
+3. The Node running the wrapper script, if it is 26.3.0+
+4. Otherwise, download Node 26.3.0 for the current host into `.cache/node26/`
 
 The auto-download supports linux and darwin on x64 and arm64. It uses `curl`
 (falling back to `wget`) and `tar`, which are present on every supported host.

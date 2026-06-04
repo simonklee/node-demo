@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url"
 
 export const root = fileURLToPath(new URL("../", import.meta.url))
 
-const NODE_VERSION = "26.1.0"
+const NODE_VERSION = "26.3.0"
 
 export const demoTargets = {
   core: {
@@ -112,22 +112,33 @@ function cachedNodeBinary() {
   return join(root, ".cache/node26", nodeArchiveName(), "bin/node")
 }
 
-function checkNodeMajor(binary) {
+function checkNodeVersion(binary) {
   const version = spawnSync(binary, ["--version"], { encoding: "utf8" })
 
   if (version.error || version.status !== 0) {
     return { ok: false, message: `Unable to run Node binary: ${binary}` }
   }
 
-  const major = Number(version.stdout.trim().replace(/^v/, "").split(".")[0])
-  if (major < 26) {
+  const actual = version.stdout.trim().replace(/^v/, "").split(".").map(Number)
+  const minimum = NODE_VERSION.split(".").map(Number)
+
+  if (!versionIsAtLeast(actual, minimum)) {
     return {
       ok: false,
-      message: `OpenTUI renderer requires Node 26+. Found ${version.stdout.trim()} at ${binary}.`,
+      message: `OpenTUI renderer requires Node ${NODE_VERSION}+. Found ${version.stdout.trim()} at ${binary}.`,
     }
   }
 
   return { ok: true }
+}
+
+function versionIsAtLeast(actual, minimum) {
+  for (let index = 0; index < minimum.length; index++) {
+    const difference = actual[index] - minimum[index]
+    if (difference !== 0) return difference > 0
+  }
+
+  return true
 }
 
 function downloadFile(url, dest) {
@@ -192,7 +203,7 @@ function downloadNode26() {
 export function resolveFfiNode() {
   const override = process.env.NODE_BIN
   if (override) {
-    const check = checkNodeMajor(override)
+    const check = checkNodeVersion(override)
     if (!check.ok) {
       throw new Error(check.message)
     }
@@ -201,20 +212,20 @@ export function resolveFfiNode() {
 
   const cached = cachedNodeBinary()
   if (existsSync(cached)) {
-    const check = checkNodeMajor(cached)
+    const check = checkNodeVersion(cached)
     if (!check.ok) {
       throw new Error(check.message)
     }
     return cached
   }
 
-  // Skip downloading if the Node running this script is already 26+.
-  if (checkNodeMajor(process.execPath).ok) {
+  // Skip downloading if the Node running this script is already new enough.
+  if (checkNodeVersion(process.execPath).ok) {
     return process.execPath
   }
 
   const downloaded = downloadNode26()
-  const check = checkNodeMajor(downloaded)
+  const check = checkNodeVersion(downloaded)
   if (!check.ok) {
     throw new Error(check.message)
   }
