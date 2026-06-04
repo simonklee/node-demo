@@ -20,6 +20,11 @@ function transformOpenTuiCore(code: string): string {
     `await import(${JSON.stringify(opentuiNativePackageName)})`,
   )
 
+  transformed = transformed.replace(
+    /await import\("@opentui\/core-[^"]+"\)/g,
+    `await import(${JSON.stringify(opentuiNativePackageName)})`,
+  )
+
   return transformed === code ? code : prependImport(transformed, ["resolveOpenTuiCoreAssetPath"])
 }
 

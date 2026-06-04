@@ -20,23 +20,25 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@opentui/core": "^0.0.0-20260518-4a54e2dc",
-    "@opentui/keymap": "^0.0.0-20260518-4a54e2dc",
-    "@opentui/solid": "^0.0.0-20260518-4a54e2dc",
+    "@opentui/core": "^0.0.0-20260604-1193e851",
+    "@opentui/keymap": "^0.0.0-20260604-1193e851",
+    "@opentui/solid": "^0.0.0-20260604-1193e851",
     "solid-js": "1.9.12"
   },
   "optionalDependencies": {
-    "@opentui/core-darwin-arm64": "0.0.0-20260518-4a54e2dc",
-    "@opentui/core-darwin-x64": "0.0.0-20260518-4a54e2dc",
-    "@opentui/core-linux-arm64": "0.0.0-20260518-4a54e2dc",
-    "@opentui/core-linux-x64": "0.0.0-20260518-4a54e2dc",
-    "@opentui/core-win32-arm64": "0.0.0-20260518-4a54e2dc",
-    "@opentui/core-win32-x64": "0.0.0-20260518-4a54e2dc"
+    "@opentui/core-darwin-arm64": "0.0.0-20260604-1193e851",
+    "@opentui/core-darwin-x64": "0.0.0-20260604-1193e851",
+    "@opentui/core-linux-arm64": "0.0.0-20260604-1193e851",
+    "@opentui/core-linux-arm64-musl": "0.0.0-20260604-1193e851",
+    "@opentui/core-linux-x64": "0.0.0-20260604-1193e851",
+    "@opentui/core-linux-x64-musl": "0.0.0-20260604-1193e851",
+    "@opentui/core-win32-arm64": "0.0.0-20260604-1193e851",
+    "@opentui/core-win32-x64": "0.0.0-20260604-1193e851"
   },
   "devDependencies": {
-    "@types/node": "25.8.0",
-    "typescript": "5.9.3",
-    "vite": "8.0.13",
+    "@types/node": "25.9.1",
+    "typescript": "6.0.3",
+    "vite": "8.0.16",
     "vite-plugin-solid": "2.11.12"
   }
 }

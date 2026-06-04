@@ -9,7 +9,9 @@ if (!opentuiNativeLibraryNames[process.platform] || !supportedOpenTuiNativeArchi
   throw new Error(`Unsupported OpenTUI native target: ${process.platform}-${process.arch}`)
 }
 
-export const opentuiNativePackageName = `@opentui/core-${process.platform}-${process.arch}`
+const opentuiNativeLibcSuffix = process.platform === "linux" && process.env.OPENTUI_LIBC === "musl" ? "-musl" : ""
+
+export const opentuiNativePackageName = `@opentui/core-${process.platform}-${process.arch}${opentuiNativeLibcSuffix}`
 export const opentuiNativeLibraryName = opentuiNativeLibraryNames[process.platform]
 export const opentuiNativeAssetKey = `${opentuiNativePackageName}/${opentuiNativeLibraryName}`
 
