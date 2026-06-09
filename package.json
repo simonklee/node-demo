@@ -20,20 +20,20 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@opentui/core": "^0.0.0-20260609-8185c616",
-    "@opentui/keymap": "^0.0.0-20260609-8185c616",
-    "@opentui/solid": "^0.0.0-20260609-8185c616",
+    "@opentui/core": "^0.0.0-20260609-341054ba",
+    "@opentui/keymap": "^0.0.0-20260609-341054ba",
+    "@opentui/solid": "^0.0.0-20260609-341054ba",
     "solid-js": "1.9.12"
   },
   "optionalDependencies": {
-    "@opentui/core-darwin-arm64": "0.0.0-20260609-8185c616",
-    "@opentui/core-darwin-x64": "0.0.0-20260609-8185c616",
-    "@opentui/core-linux-arm64": "0.0.0-20260609-8185c616",
-    "@opentui/core-linux-arm64-musl": "0.0.0-20260609-8185c616",
-    "@opentui/core-linux-x64": "0.0.0-20260609-8185c616",
-    "@opentui/core-linux-x64-musl": "0.0.0-20260609-8185c616",
-    "@opentui/core-win32-arm64": "0.0.0-20260609-8185c616",
-    "@opentui/core-win32-x64": "0.0.0-20260609-8185c616"
+    "@opentui/core-darwin-arm64": "0.0.0-20260609-341054ba",
+    "@opentui/core-darwin-x64": "0.0.0-20260609-341054ba",
+    "@opentui/core-linux-arm64": "0.0.0-20260609-341054ba",
+    "@opentui/core-linux-arm64-musl": "0.0.0-20260609-341054ba",
+    "@opentui/core-linux-x64": "0.0.0-20260609-341054ba",
+    "@opentui/core-linux-x64-musl": "0.0.0-20260609-341054ba",
+    "@opentui/core-win32-arm64": "0.0.0-20260609-341054ba",
+    "@opentui/core-win32-x64": "0.0.0-20260609-341054ba"
   },
   "devDependencies": {
     "@types/node": "25.9.1",
